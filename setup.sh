@@ -1,7 +1,7 @@
 #/bin/bash
 
-ln -s ~/.bashrc ~/.dotfiles/bashrc
-ln -s ~/.gitconfig ~/.dotfiles/gitconfig
-ln -s ~/.gitignore_global ~/.dotfiles/gitignore_global
+ln -s ~/.dotfiles/bashrc ~/.bashrc 
+ln -s ~/.dotfiles/gitconfig ~/.gitconfig 
+ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global 
 
 ls -al | grep "\->"
