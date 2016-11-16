@@ -63,7 +63,6 @@ set laststatus=2
 " Colors
 set t_Co=256  					" Set terminal to display 256 colors.
 set background=dark
-colorscheme chris
 
 " Ignore Files
 set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,*.DS_Store
