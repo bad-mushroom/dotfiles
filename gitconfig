@@ -6,7 +6,7 @@
     mergeoptions = --no-edit
     editor = vim
     whitespace = fix, -indent-with-non-tab,trailing-sapce,cr-at-eol
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 
 [web]
     browser = google-chrome
@@ -44,7 +44,7 @@
     user = bad-mushroom
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 
 [alias]
     s = status
@@ -53,4 +53,4 @@
     co = checkout
     unstage = reset HEAD --
     recent = ! git reflog | grep 'checkout: moving from' | head -n 50 | egrep -oh ' \\S+$' | awk '!x[$0]++'
-    rm-merged = ! git branch --merged master xargs -n 1 git branch -d
+    rm-merged = ! git branch --merged main xargs -n 1 git branch -d
