@@ -27,3 +27,8 @@ export EDITOR=vim
 # --- Paths ----------------------- #
 
 PATH=${PATH}:/usr/local/bin:~/.composer/vendor/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+[ -s "$(brew --prefix nvm)/bash_completion" ] && \. "$(brew --prefix nvm)/bash_completion"
+

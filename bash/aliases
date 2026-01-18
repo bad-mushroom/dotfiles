@@ -5,4 +5,5 @@ alias mkdir='mkdir -p'
 alias brew="arch -x86_64 brew"
 alias c="code ."
 alias composer="docker run --rm --interactive --tty --volume $PWD:/app composer"
-alias npm="docker run --rm --interactive --tty --volume $PWD:/app node:latest npm --prefix=/app"
+alias composer_dig='docker run --rm --interactive --tty --volume $PWD:/app --volume $(realpath /Users/chris/Projects/packages/DigStatsReader):/app/DigStatsReader composer'
+
