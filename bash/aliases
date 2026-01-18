@@ -1,9 +1,39 @@
-alias lsl='ls -ahlT'
+# --------------------------------------------------
+# ls
+# --------------------------------------------------
+
+alias lsl='ls -ahlT'   # macOS long + human + symlinks
+
+# --------------------------------------------------
+# git
+# --------------------------------------------------
+
 alias g='git'
 alias gl='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
-alias mkdir='mkdir -p'
-alias brew="arch -x86_64 brew"
-alias c="code ."
-alias composer="docker run --rm --interactive --tty --volume $PWD:/app composer"
-alias composer_dig='docker run --rm --interactive --tty --volume $PWD:/app --volume $(realpath /Users/chris/Projects/packages/DigStatsReader):/app/DigStatsReader composer'
 
+# --------------------------------------------------
+# misc
+# --------------------------------------------------
+
+alias mkdir='mkdir -p'
+alias c='code .'
+alias composer="docker run --rm --interactive --tty --volume $PWD:/app composer"
+alias sysinfo="fastfetch"
+
+# --------------------------------------------------
+# Docker
+# --------------------------------------------------
+
+alias d='docker'
+alias dc='docker compose'
+alias dps='docker ps'
+
+# --------------------------------------------------
+# Homebrew
+# --------------------------------------------------
+
+# Native brew (default)
+alias brew='brew'
+
+# Rosetta brew (Apple Silicon only)
+alias brewx86='arch -x86_64 brew'

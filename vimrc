@@ -1,71 +1,78 @@
-" Global Settings
-set nocompatible  			" Remove vi compatibility
-filetype off
+" -------------------------
+" Basic Config
+" -------------------------
+
+set nocompatible
+filetype plugin indent on
 syntax on
 
-set linespace=5				" Veritcle line padding
-set showmode                " Show current mode
-set nowrap                  " Prevent line wrapping
-set tabstop=4               " a tab is four spaces
-set relativenumber 			" Line numbers relative to current line
-set autoindent
-set smartindent
-set expandtab
+set number
+set relativenumber
+set cursorline
+
+set showmode
+set nowrap
+set linespace=4
+
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set formatoptions+=or
-set cursorline
-set linespace=8
+set expandtab
+set autoindent
+set smartindent
 
-" Vundle Settings
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set background=dark
 
-" MacVim Gui Settings
-set guioptions-=T   		" Removes top toolbar
-set guioptions-=r   		" Removes right scrollb bar
-set go-=L           		" Removes left hand scroll bar
-set mouse=a
-set guifont=Monaco:h13
+" Ignore files in autocomplete
+set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,*.DS_Store
 
-" Bundles
+" -------------------------
+" Plugin Manager (vim-plug)
+" -------------------------
 
-" Plugin Manager
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/closetag.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Townk/vim-autoclose'
-Bundle 'majutsushi/tagbar'
-Bundle 'Yggdroot/indentLine'
+call plug#begin('~/.vim/plugged')
 
-" Nerd Tree
-" autocmd vimenter * NERDTree		" Launch automatically
-map <C-n> :NERDTreeToggle<CR>	" Toggle w/ [CTRL]+n
-let NERDTreeIgnore = [ '.DS_Store', '.*.swp$', '\~$' ]
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-fugitive'
+Plug 'Townk/vim-autoclose'
+Plug 'preservim/tagbar'
+Plug 'Yggdroot/indentLine'
 
-" Code Completion
-let g:neocomplcache_enable_at_startup = 1
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+call plug#end()
 
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-    endif
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" -------------------------
+" Plugin Config
+" -------------------------
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.DS_Store$', '.*\.swp$', '\~$']
 
 " Airline
 set laststatus=2
 
-" Colors
-set t_Co=256  					" Set terminal to display 256 colors.
-set background=dark
+" Tagbar
+nnoremap <F8> :TagbarToggle<CR>
 
-" Ignore Files
-set wildignore+=*.swp,.git/,*.jpg,*.jpeg,*.png,*.gif,*.psd,*.pdf,*.DS_Store
+" -------------------------
+" Completion (simple built-in)
+" -------------------------
+" NOTE: modern completion tools available if needed later
 
-" File Types
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
+
+" -------------------------
+" Filetypes
+" -------------------------
 au BufNewFile,BufRead *.mh set filetype=php
+
+" -------------------------
+" Misc
+" -------------------------
+set mouse=a
